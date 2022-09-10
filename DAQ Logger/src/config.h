@@ -1,0 +1,1 @@
+#define RADIO_BAUD 9600; // Baud rate for radio

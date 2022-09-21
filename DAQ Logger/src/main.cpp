@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "config.h"
 #include "sensors.h"
+#include "sdlogging.h"
 #include "IRTherm/irtherm.h"
 
 void setup() {

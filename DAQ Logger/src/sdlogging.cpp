@@ -2,6 +2,7 @@
 #include <SD.h>
 #include <SPI.h>
 #include <stdio.h>
+#include "sdlogging.h"
 
 //Arduino.h has it's own built in string library just with an uppercase S (E.x: String instead of string)
 
@@ -23,10 +24,18 @@ void createLog(){
 }
 
 //Should write an input to a file. Possibly an issue with file not being opened due to code structure.
-void writeToLog(String input){
+void writeToLog(char input [50]){
     File writeFile = SD.open(logFile);
+    int time = millis();
+
+    sprintf(input, "%d %s\0", time, input);
+
     writeFile.seek(EOF);
-    writeFile.println(input);
+
+    for(int i = 0; input[i] != '\0'; i++){
+    writeFile.print(input[i]);
+    }
+    writeFile.println();
     writeFile.close();
 }
 

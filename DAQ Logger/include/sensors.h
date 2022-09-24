@@ -4,5 +4,7 @@
 
 class QuadSensor{
     public:
-        double detectRev();
+        double detectTime();
+        double calculateRev();
+        double calculateLinear();
 };

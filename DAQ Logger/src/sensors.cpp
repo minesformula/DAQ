@@ -1,16 +1,7 @@
 #include <string>
 #include <Arduino.h>
 #include "config.h"
-
-class QuadSensor {      
-  public:
-      const int chanA = QUAD_CHANNELA;
-      const int chanB = QUAD_CHANNELB;
-
-    double detectTime(void);
-    double calculateRev(void);
-    double calculateLinear(void);
-};
+#include "sensors.hpp"
 
 //Returns time it takes for one gap/tooth to pass
 double QuadSensor::detectTime(void) {
@@ -34,11 +25,11 @@ double QuadSensor::detectTime(void) {
 };
 
 //Calculates revolutions per second and returns it. TONE_NUM is number of gaps+teeth on tone wheel.
-double QuadSensor::calculateRev(void) {
+double QuadSensor::calculateRev() {
   return 1/(TONE_NUM * detectTime());
 }
 
-double QuadSensor::calculateLinear(void) {
+double QuadSensor::calculateLinear() {
   //output in mm/sec
   return 0.08/(detectTime());
 }

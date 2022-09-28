@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 #include "config.h"
-#include "sensors.h"
+#include "sensors.hpp"
 #include "sdlogging.h"
 #include "IRTherm/irtherm.h"
 

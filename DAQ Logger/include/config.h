@@ -20,7 +20,6 @@
 
 
 
-
 //Infrared Brake Temperature Sensor
 #define BRAKETEMP_VSUPPLY 6
 #define BRAKETEMP_GROUND 7

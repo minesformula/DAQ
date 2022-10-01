@@ -9,29 +9,36 @@
 //General Sensor Class
 class Sensor {      
     public:
+        double getValue(void);
+        boolean validate(void);
+
+    protected:
         int value;
         int high;
         int low;
         String type; 
         String unit;
-
-        double getValue(void);
-        boolean validate(void);
 };
 
 //Analog Sensor: Child class of sensor
 class Analog : public Sensor {
     public:
+        double calculate(double a, double b);
+
+    private:
         int pin;
-        String equation;
-        String sensorName;
+        int constant;
 };
 
 //I2C Sensor: Child class of sensor
 class i2c : public Sensor {
     public:
-        int pin1, pin2;
+        String getHex(void);
+    private:
+        int pin1;
+        int pin2;
         String hex;
+
 };
 
 //Quadrature Speed Sensor

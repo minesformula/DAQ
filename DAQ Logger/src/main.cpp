@@ -4,7 +4,7 @@
 #include "config.h"
 #include "sensors.hpp"
 #include "sdlogging.h"
-#include "IRTherm/irtherm.h"
+#include "irtherm.h"
 
 void setup() {
   Serial.begin(9600);

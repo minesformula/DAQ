@@ -16,7 +16,7 @@ void setup() {
 //This version is testing connection with quadrature sensor
 void loop() {
   QuadSensor vsense;
-  double revtime, runtime;
+  double revtime;
   char logWrite [50];
   
   for (int i = 0; i < 10; i++){
@@ -24,8 +24,7 @@ void loop() {
     Serial.println("Revolutions per Second: ");
     Serial.println(revtime);
 
-    runtime = millis();
-    sprintf(logWrite, "%d Revolutions per Second: %f\0", runtime, revtime);
+    sprintf(logWrite, "%d Revolutions per Second: %f", millis(), revtime);
     writeToLog(logWrite);
   }
 }

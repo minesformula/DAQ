@@ -9,35 +9,40 @@
 //General Sensor Class
 class Sensor {      
     public:
-        double getValue(void);
-        boolean validate(void);
+        boolean validate(const double);
+        String getType(void);
+        String getUnit(void);
 
     protected:
-        int value;
-        int high;
-        int low;
-        String type; 
+        int highVal;
+        int lowVal;
+        const String sensorType = "undefined"; 
         String unit;
 };
 
 //Analog Sensor: Child class of sensor
 class Analog : public Sensor {
     public:
-        double calculate(double a, double b);
+        double getAnalog(void);
+        int getDigital(void);
+        double calculateLinear(const double);
+        double calculateLinear(const double, const double);
 
     private:
         int pin;
         int constant;
+        const String sensorType = "Analog";
 };
 
 //I2C Sensor: Child class of sensor
-class i2c : public Sensor {
+class I2C : public Sensor {
     public:
-        String getHex(void);
+        String getHexAddress(void);
     private:
         int pin1;
         int pin2;
-        String hex;
+        String hexAddress;
+        const String sensorType = "I2C";
 
 };
 

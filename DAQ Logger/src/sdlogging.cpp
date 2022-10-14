@@ -28,7 +28,7 @@ void writeToLog(char input [50]){
     File writeFile = SD.open(logFile);
     int time = millis(); //millis() returns time since program start in milliseconds
 
-    sprintf(input, "%d: %s\0", time, input);
+    sprintf(input, "%d: %s", time, input);
 
     writeFile.seek(EOF);
 

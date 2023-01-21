@@ -125,3 +125,4 @@ It should now be possible to create a dashboard using data from your influxDB da
 Since the query language we're using is Flux I would recommend reading about the use of flux in Grafana here: https://grafana.com/docs/grafana/latest/datasources/influxdb/influxdb-flux/
 
 If necessary you may configure Grafana more by following the steps outlined here: https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/
+

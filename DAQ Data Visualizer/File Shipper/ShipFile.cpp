@@ -45,12 +45,10 @@ void shipData(std::ifstream& fileIn){
 }
 
 void submitToInflux(const std::vector<std::string> measurements, const std::vector<std::string> units, std::vector<double>& values){
-    usleep(1);
-    
     std::string URI = std::string("http://") + FILE_INFLUX_USER + std::string(":") + FILE_INFLUX_PASS + std::string("@") + FILE_INFLUX_HOST + std::string(":8086?db=") + FILE_INFLUX_BUCKET;
 
     auto influxdb = influxdb::InfluxDBFactory::Get(URI);
-    influxdb->batchOf(1000);
+    influxdb->batchOf(1000000);
     for (int i = 0; i < measurements.size(); i++){
         influxdb->write(influxdb::Point{units[i]}.addField(measurements[i], values[i]));
     }

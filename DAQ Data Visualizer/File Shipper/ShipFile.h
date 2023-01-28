@@ -18,6 +18,8 @@
 #define FILE_INFLUX_USER "member" //Username of your file bucket auth account goes here
 #define FILE_INFLUX_PASS "passcode" //Password of your file bucket auth account goes here
 
+//#define URI "http://member:passcode@localhost:8086?db=daqactual" //Completed URI to prevent repeated memory allocation
+
 void shipData(std::ifstream& fileIn);
 
 void submitToInflux(std::vector<std::string> measurements, std::vector<std::string> units, std::vector<double>& values);

@@ -28,8 +28,8 @@ void shipData(std::ifstream& fileIn){
         }
     }
 
-    auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
-    //std::cout << "First Line Complete: " << duration.count()  << " μs" << std::endl;
+    auto duration = duration_cast<milliseconds>(high_resolution_clock::now() - start);
+    //std::cout << "First Line Complete: " << duration.count()  << " ms" << std::endl;
 
     std::vector<double> values;
     values.push_back(0.000);
@@ -37,8 +37,8 @@ void shipData(std::ifstream& fileIn){
     while (currString != "Lap:"){
         fileIn >> currString;
         if (currString == "Lap:"){
-            duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
-            std::cout << "Full File Read: " << duration.count()  << " μs" << std::endl;
+            duration = duration_cast<milliseconds>(high_resolution_clock::now() - start);
+            std::cout << "Full File Read: " << duration.count()  << " ms" << std::endl;
             break;
         }
         else {
@@ -72,8 +72,8 @@ void submitToInflux(const std::vector<std::string> measurements, const std::vect
 
     values.clear();
 
-    auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
+    auto duration = duration_cast<milliseconds>(high_resolution_clock::now() - start);
 
-    std::cout << "Submission Time: " << duration.count() << " μs" << std::endl;
+    std::cout << "Submission Time: " << duration.count() << " ms" << std::endl;
     return;
 }

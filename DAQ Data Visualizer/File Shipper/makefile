@@ -1,4 +1,4 @@
-TARGET = fileship
+TARGET = run_fileship
 SRC_FILES = main.cpp ShipFile.cpp 
 
 CXX = g++

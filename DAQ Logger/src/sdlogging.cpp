@@ -15,8 +15,7 @@ void createLog(){
 
         sprintf(logFile, "logFile%d.txt", i);
     }
-
-    sprintf(logFile, "logFile%d.txt", i);
+    sprintf(logFile, "logFile%d.txt", i); //Remove when possible
 }
 
 //Should write an input to a file. Possibly an issue with file not being opened due to code structure.

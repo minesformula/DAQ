@@ -1,7 +1,7 @@
 //Relies on https://github.com/offa/influxdb-cxx
 //Relies on c++17
 
-#include "dataSend.h"
+#include "include/dataSend.h"
 
 void Database::createEntry(std::string type){
     sensorValues.push_back(influxdb::Point{type});

@@ -20,8 +20,8 @@
 
 //#define URI "http://member:passcode@localhost:8086?db=daqactual" //Completed URI to prevent repeated memory allocation
 
-void shipData(std::ifstream& fileIn);
+void shipData(std::ifstream &fileIn);
 
-void submitToInflux(std::vector<std::string> measurements, std::vector<std::string> units, std::vector<double>& values);
+void submitToInflux(std::vector<std::string> measurements, std::vector<std::string> units, std::vector<double> &values);
 
 #endif

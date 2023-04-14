@@ -1,8 +1,8 @@
-TARGET = run_fileship
+TARGET = fileShipper
 SRC_FILES = main.cpp ShipFile.cpp 
 
 CXX = g++
-CFLAGS = -g -std=c++17 -L/usr/local/lib -lInfluxDB
+CFLAGS = -g -std=c++17 -L /usr/local/lib -l InfluxDB
 OBJECTS = $(SRC_FILES:.cpp=.o)
 ifeq ($(shell echo "Windows"), "Windows")
 	TARGET := $(TARGET).exe

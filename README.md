@@ -99,6 +99,7 @@ apt-get install wget curl gnupg2 apt-transport-https software-properties-common 
 sudo wget -q -O /usr/share/keyrings/grafana.key https://packages.grafana.com/gpg.key
 echo "deb https://packages.grafana.com/oss/deb stable main" | tee -a /etc/apt/sources.list.d/grafana.list
 apt-get update -y
+grafana-cli plugins install pr0ps-trackmap-panel
 systemctl start grafana-server
 systemctl enable grafana-server
 ```

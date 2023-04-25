@@ -1,5 +1,5 @@
 # DAQ-Vehicle
- Code for the physical DAQ(Hermes) on the vehicle
+Software for physical Data Acquisition System on Mines Formula cars. Work in Progress...
 
 
 ## Visualizer QuickStart (Influx-CXX, Grafana and InfluxDB)

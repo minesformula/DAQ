@@ -1,4 +1,4 @@
-# DAQ-Vehicle
+# DAQ
 Software for physical Data Acquisition System on Mines Formula cars. Work in Progress...
 
 
@@ -15,20 +15,23 @@ The below installation steps assume you are using Ubuntu on a Raspberry Pi that 
 
 Run `sudo apt install cmake g++ make git curl` on your Raspberry Pi command line. This command, on success, will install the tools necessary to install Influx-CXX and it's dependencies.
 
-Run the below command. This will install all git repos necessary and a few required libraries.
+Run the below command. This will install all git repos necessary and also install the required libraries if you haven't already.
 
 ```
 git clone https://github.com/catchorg/Catch2
 git clone https://github.com/rollbear/trompeloeil
 git clone https://github.com/offa/influxdb-cxx
 
+sudo apt update
+
 sudo apt-get install g++
+sudo apt-get install build-essential
 sudo apt-get install cmake
 sudo apt-get install libcurl4-openssl-dev
-sudo apt-get install libboost1.71-all-dev
+sudo apt-get install libboost-all-dev
 ```
 
-Once the process has completed run the below command to build the repositories.
+Once the process has completed run the below command to build the repositories. Note that the cpr library has special flags. These flags are necessary for compiling influxdb-cxx. (Note that at the time of writing InfluxDB-CXX has some issues when compiling)
 
 ```
 cd Catch2
@@ -43,6 +46,13 @@ cmake ..
 sudo make install
 cd ../..
 
+git clone https://github.com/libcpr/cpr.git
+cd cpr && mkdir build && cd build
+cmake .. -DCPR_USE_SYSTEM_CURL=ON
+cmake --build .
+sudo cmake --install .
+cd ../..
+
 cd influxdb-cxx
 mkdir build && cd build
 cmake ..
@@ -55,6 +65,7 @@ Finally run the below command to erase the leftover files.
 ```
 sudo rm -r Catch2
 sudo rm -r trompeloeil
+sudo rm -r cpr
 sudo rm -r influxdb-cxx
 ```
 
